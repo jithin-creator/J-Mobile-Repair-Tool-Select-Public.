@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>JJ MOBILE REPAIR TOOL</title>
+
+<style>
+:root {
+  --bg:#101010;
+  --panel:#1b1a17;
+  --gold:#d6ad52;
+  --gold2:#f1d58a;
+  --white:#ffffff;
+  --muted:#aaa;
+}
+* {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+  padding:15px;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,sans-serif;
+}
+header {
+  text-align:center;
+  padding:24px 10px;
+  border:1px solid var(--gold);
+  border-radius:15px;
+  background:linear-gradient(135deg,#25231e,#101010);
+}
+.logo {
+  font-size:42px;
+  color:var(--gold);
+}
+h1 {
+  color:var(--gold);
+  font-size:23px;
+  margin:8px 0;
+}
+header p {
+  color:var(--muted);
+  font-size:12px;
+}
+.section-title {
+  color:var(--gold2);
+  margin:25px 0 12px;
+  font-size:17px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.card {
+  background:var(--panel);
+  border:1px solid #51452e;
+  border-radius:13px;
+  padding:19px 8px;
+  text-align:center;
+  cursor:pointer;
+  min-height:110px;
+}
+.card:active {
+  background:#393020;
+}
+.card .icon {
+  font-size:30px;
+  margin-bottom:10px;
+}
+.card h3 {
+  color:var(--gold2);
+  font-size:14px;
+  margin:5px 0;
+}
+.card p {
+  font-size:11px;
+  color:var(--muted);
+  margin:4px 0;
+}
+button {
+  background:var(--gold);
+  color:#111;
+  border:0;
+  padding:12px;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+}
+input,textarea {
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid var(--gold);
+  border-radius:8px;
+  background:#222;
+  color:white;
+}
+.page {
+  display:none;
+  margin-top:20px;
+  padding:15px;
+  border:1px solid #51452e;
+  border-radius:12px;
+  background:var(--panel);
+}
+.page h2 {
+  color:var(--gold);
+}
+.back {
+  margin-bottom:15px;
+}
+footer {
+  text-align:center;
+  color:#888;
+  margin:30px 0;
+  font-size:11px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">⚙</div>
+  <h1>JJ MOBILE REPAIR TOOL</h1>
+  <p>ANDROID & IPHONE REPAIR ASSISTANT</p>
+  <p>VERSION 1.0</p>
+</header>
+
+<main id="home">
+
+<h2 class="section-title">MAIN MENU</h2>
+
+<div class="grid">
+
+<div class="card" onclick="openPage('android')">
+<div class="icon">📱</div>
+<h3>ANDROID TOOLS</h3>
+<p>Device diagnostics</p>
+</div>
+
+<div class="card" onclick="openPage('iphone')">
+<div class="icon">🍎</div>
+<h3>IPHONE TOOLS</h3>
+<p>Recovery guides</p>
+</div>
+
+<div class="card" onclick="openPage('usb')">
+<div class="icon">🔌</div>
+<h3>USB / OTG</h3>
+<p>Connection guides</p>
+</div>
+
+<div class="card" onclick="openPage('data')">
+<div class="icon">📂</div>
+<h3>DATA TRANSFER</h3>
+<p>File transfer help</p>
+</div>
+
+<div class="card" onclick="openPage('recovery')">
+<div class="icon">🔐</div>
+<h3>LOCK RECOVERY</h3>
+<p>Official recovery help</p>
+</div>
+
+<div class="card" onclick="openPage('repair')">
+<div class="icon">🛠️</div>
+<h3>REPAIR GUIDES</h3>
+<p>Hardware troubleshooting</p>
+</div>
+
+<div class="card" onclick="openPage('customer')">
+<div class="icon">👤</div>
+<h3>CUSTOMER RECORDS</h3>
+<p>Repair details</p>
+</div>
+
+<div class="card" onclick="openPage('backup')">
+<div class="icon">💾</div>
+<h3>BACKUP</h3>
+<p>Export repair records</p>
+</div>
+
+</div>
+</main>
+
+<section id="android" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>ANDROID TOOLS</h2>
+<p>Android device diagnostics and repair support.</p>
+<button onclick="deviceInfo()">Device Information</button>
+<div id="deviceResult"></div>
+</section>
+
+<section id="iphone" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>IPHONE TOOLS</h2>
+<p>Official Apple recovery and troubleshooting.</p>
+<button onclick="window.open('https://support.apple.com/','_blank')">Apple Support</button>
+</section>
+
+<section id="usb" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>USB / OTG TOOLS</h2>
+<p>Connect compatible USB devices using an OTG adapter.</p>
+<p>USB device detection depends on Android hardware and permissions.</p>
+</section>
+
+<section id="data" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>DATA TRANSFER</h2>
+<input type="file" id="fileInput" multiple>
+<p>Select files to share or transfer using supported Android features.</p>
+</section>
+
+<section id="recovery" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>LOCK RECOVERY</h2>
+<p>Android screen lock: use the device manufacturer's official recovery process.</p>
+<p>Google account recovery:</p>
+<button onclick="window.open('https://accounts.google.com/signin/recovery','_blank')">Google Recovery</button>
+<p>Apple ID recovery:</p>
+<button onclick="window.open('https://iforgot.apple.com/','_blank')">Apple Recovery</button>
+</section>
+
+<section id="repair" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>REPAIR GUIDES</h2>
+<ul>
+<li>Charging problems</li>
+<li>Battery problems</li>
+<li>Display problems</li>
+<li>USB connector faults</li>
+<li>Speaker and microphone faults</li>
+<li>Water damage inspection</li>
+</ul>
+</section>
+
+<section id="customer" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>CUSTOMER RECORDS</h2>
+<input id="customerName" placeholder="Customer name">
+<input id="customerPhone" placeholder="Mobile number" type="tel">
+<input id="deviceName" placeholder="Phone model">
+<textarea id="repairNote" placeholder="Repair details"></textarea>
+<button onclick="saveCustomer()">SAVE RECORD</button>
+<div id="customerList"></div>
+</section>
+
+<section id="backup" class="page">
+<button class="back" onclick="goHome()">← BACK</button>
+<h2>BACKUP & RESTORE</h2>
+<button onclick="exportBackup()">DOWNLOAD BACKUP</button>
+<p>Export saved customer records as JSON.</p>
+<input type="file" id="restoreFile" accept=".json">
+<button onclick="restoreBackup()">RESTORE BACKUP</button>
+</section>
+
+<footer>
+JJ MOBILE REPAIR TOOL<br>
+ANDROID & IPHONE SERVICE ASSISTANT
+</footer>
+
+<script>
+function openPage(id) {
+ document.getElementById("home").style.display="none";
+ document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+ document.getElementById(id).style.display="block";
+}
+function goHome() {
+ document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+ document.getElementById("home").style.display="block";
+}
+function deviceInfo() {
+ document.getElementById("deviceResult").innerHTML=
+ "<p>Browser: "+navigator.userAgent+"</p>"+
+ "<p>Platform: "+navigator.platform+"</p>";
+}
+function getCustomers() {
+ try {
+ return JSON.parse(localStorage.getItem("jjCustomers")||"[]");
+ } catch(e) {
+ return [];
+ }
+}
+function saveCustomer() {
+ let name=document.getElementById("customerName").value.trim();
+ let phone=document.getElementById("customerPhone").value.trim();
+ let device=document.getElementById("deviceName").value.trim();
+ let note=document.getElementById("repairNote").value.trim();
+
+ if(!name || !phone) {
+ alert("Enter customer name and phone number");
+ return;
+ }
+
+ let records=getCustomers();
+ records.push({
+ name,phone,device,note,
+ date:new Date().toLocaleString()
+ });
+
+ localStorage.setItem("jjCustomers",JSON.stringify(records));
+ alert("Customer record saved");
+ document.getElementById("customerName").value="";
+ document.getElementById("customerPhone").value="";
+ document.getElementById("deviceName").value="";
+ document.getElementById("repairNote").value="";
+ showCustomers();
+}
+function showCustomers() {
+ let records=getCustomers();
+ document.getElementById("customerList").innerHTML=
+ records.map((r,i)=>
+ "<p>"+(i+1)+". "+escapeHTML(r.name)+
+ " - "+escapeHTML(r.phone)+
+ "<br>"+escapeHTML(r.device||"")+
+ "<br>"+escapeHTML(r.note||"")+
+ "<br>"+escapeHTML(r.date)+
+ "</p>"
+ ).join("");
+}
+function escapeHTML(value) {
+ return String(value).replace(/[&<>"']/g,function(c){
+ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+ });
+}
+function exportBackup() {
+ let data=JSON.stringify(getCustomers(),null,2);
+ let blob=new Blob([data],{type:"application/json"});
+ let url=URL.createObjectURL(blob);
+ let a=document.createElement("a");
+ a.href=url;
+ a.download="JJ_MOBILE_BACKUP.json";
+ a.click();
+ URL.revokeObjectURL(url);
+}
+function restoreBackup() {
+ let file=document.getElementById("restoreFile").files[0];
+ if(!file) {
+ alert("Select backup file");
+ return;
+ }
+ let reader=new FileReader();
+ reader.onload=function() {
+ try {
+ let data=JSON.parse(reader.result);
+ if(!Array.isArray(data)) throw new Error();
+ localStorage.setItem("jjCustomers",JSON.stringify(data));
+ alert("Backup restored");
+ showCustomers();
+ } catch(e) {
+ alert("Invalid backup file");
+ }
+ };
+ reader.readAsText(file);
+}
+showCustomers();
+</script>
+
+</body>
+</html>
